@@ -38,7 +38,7 @@ useradd roboshop &>>$LOGFILE
 
 mkdir /app &>>$LOGFILE
 
-curl -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>>$LOGFILE
+curl -o /tmp/cart.zip https://roboshop-builds.s3.amazonaws.com/cart.zip &>>$LOGFILE
 
 VALIDATE $? "downlaod code"
 
