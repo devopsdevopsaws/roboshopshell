@@ -74,11 +74,11 @@ cp -rp /home/centos/roboshopshell/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOG
 
 VALIDATE $? "copied mongo repo for client"
 
-yum install mongodb-org-shell -y
+yum install mongodb-org-shell -y &>>$LOGFILE
 
 VALIDATE $? "Install mongodb client"
 
-mongo --host mongodb.padmasrikanth.shop </app/schema/catalogue.js
+mongo --host mongodb.padmasrikanth.shop </app/schema/catalogue.js &>>$LOGFILE
 
 VALIDATE $? "Connect to Mongodb"
 
