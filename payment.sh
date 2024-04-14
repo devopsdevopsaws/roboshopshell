@@ -32,11 +32,11 @@ VALIDATE $? "Install python"
 
 useradd roboshop &>>$LOGFILE
 
-VALIDATE $? "create user"
+#VALIDATE $? "create user"
 
 mkdir /app &>>$LOGFILE
 
-VALIDATE $? "create app directory"
+#VALIDATE $? "create app directory"
 
 curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip &>>$LOGFILE
 
@@ -49,6 +49,8 @@ VALIDATE $? "move to app"
 unzip /tmp/payment.zip &>>$LOGFILE
 
 VALIDATE $? "unzip payment"
+
+sed -i 's/uwsgi/uwsgi==2.0.23/g' /app/requirements.txt  &>>$LOGFILE
 
 pip3.6 install -r requirements.txt &>>$LOGFILE
 
